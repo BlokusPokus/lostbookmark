@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+
+{% if request.user.is_authenticated %}
+<p>Welcome, {{ request.user.username }}!</p>
+<a href="{% url 'account_logout' %}">Logout</a>
+<button>Clean Bookmark</button>
+<button>
+  <a href="{% url 'home' %}">Home</a>
+</button>
+{% else %}
+<p>Please log in to view this page.</p>
+{% endif %}
