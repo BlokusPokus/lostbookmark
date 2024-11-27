@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('SocialAuth.urls')),
     path('accounts/', include('allauth.urls')),
-    path('bookmarks/', include('swipeSave.urls')),
+    path('swipeSave/', include('swipeSave.urls', namespace='swipeSave')),
 ]

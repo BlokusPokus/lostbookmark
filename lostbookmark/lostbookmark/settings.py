@@ -113,7 +113,8 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': os.environ.get('TWITTER_CLIENT_SECRET'),
             'key': ''
         },
-        'SCOPE': ['users.read', 'tweet.read'],  # Only use the default scopes
+        # Only use the default scopes
+        'SCOPE': ['users.read', 'tweet.read', 'bookmark.read'],
         'CALLBACK_URL': 'http://127.0.0.1:8000/accounts/twitter_oauth2/login/callback/'
     }
 }

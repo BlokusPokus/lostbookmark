@@ -1,8 +1,37 @@
 <h1>Swipe Interface</h1>
-<form action="/bookmarks/" method="get">
+<form action="/swipeSave/" method="get">
   {% csrf_token %}
-  <input type="text" name="url" placeholder="URL" />
-  <input type="text" name="title" placeholder="Title" />
-  <input type="text" name="description" placeholder="Description" />
-  <button type="submit">Save</button>
+
+  <button type="submit" formaction="/swipeSave/bookmark-list/" formmethod="GET">
+    Get Bookmarks from Twitter
+  </button>
+  <div class="bookmarks">
+    {% if bookmarks %} {% for bookmark in bookmarks.data %}
+    <p>text: {{ bookmark.text }}</p>
+    <p>id: {{ bookmark.id }}</p>
+    {% endfor %}
+  </div>
+
+  <button
+    type="submit"
+    formaction="/swipeSave/bookmark-list/"
+    formmethod="DELETE"
+  >
+    Delete Bookmarks
+  </button>
+  <button
+    type="submit"
+    formaction="/swipeSave/bookmark-list/"
+    formmethod="POST"
+  >
+    Keep Bookmarks
+  </button>
+  <button
+    type="submit"
+    formaction="/swipeSave/bookmark-list/"
+    formmethod="POST"
+  >
+    Add to another bookmark type
+  </button>
+  {% endif %}
 </form>

@@ -1,12 +1,15 @@
 <h1>Dashboard</h1>
 
-{% if request.user.is_authenticated %}
 <p>Welcome, {{ request.user.username }}!</p>
+{% if twitter_user_id %}
+<p>Twitter User ID: {{ twitter_user_id }}</p>
+{% endif %}
 <a href="{% url 'account_logout' %}">Logout</a>
-<button>Clean Bookmark</button>
+<button>
+  <a href="{% url 'swipeSave:swipe_interface' %}" class="button"
+    >Clean Bookmark</a
+  >
+</button>
 <button>
   <a href="{% url 'home' %}">Home</a>
 </button>
-{% else %}
-<p>Please log in to view this page.</p>
-{% endif %}
